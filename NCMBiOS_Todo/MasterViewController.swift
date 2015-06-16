@@ -38,10 +38,13 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "editTodo" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = self.objects[indexPath.row] as! NCMBObject
-                (segue.destinationViewController as! DetailViewController).detailItem = object
+                if let dvc = segue.destinationViewController as? DetailViewController {
+                    dvc.detailItem = object
+                    dvc.updateButton.title = "更新"
+                }
             }
         } else if segue.identifier == "addTodo" {
-            // TODOの追加。渡す情報は何もないので何もしない
+            (segue.destinationViewController as! DetailViewController).updateButton.title = "追加"
         } else {
             // 遷移先が定義されていない
         }

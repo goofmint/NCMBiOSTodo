@@ -173,6 +173,7 @@
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
                         <outlet property="todoTitle" destination="efI-jh-5e2" id="Qe6-wS-n1b"/>
+                        <outlet property="updateButton" destination="fxD-I4-BQx" id="rm2-0b-8tZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
