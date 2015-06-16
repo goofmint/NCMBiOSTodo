@@ -114,7 +114,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Detail view content goes here" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
                                 <rect key="frame" x="20" y="134" width="560" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
