@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
     let kTodoClassName = "Todo"
     
     /// TODOを格納する配列です。実際にはNCMBObjectを格納します。
-    var objects = [AnyObject]()
+    var objects = [NCMBObject]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +37,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editTodo" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = self.objects[indexPath.row] as! NCMBObject
+                let object = self.objects[indexPath.row]
                 if let dvc = segue.destinationViewController as? DetailViewController {
                     dvc.detailItem = object
                     dvc.updateButton.title = "更新"
@@ -82,7 +82,7 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        let object: (AnyObject) = objects[indexPath.row]
+        let object = objects[indexPath.row]
         cell.textLabel!.text = object.objectForKey("title") as? String
         return cell
     }
@@ -94,8 +94,10 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let object = objects[indexPath.row] as! NCMBObject
-            let objectID = object.objectForKey("objectId") as! String
+            let object = objects[indexPath.row] as NCMBObject
+
+            // object.objectForKey("objectId") ではNGなので注意
+            let objectID = object.objectId
             
             let query = NCMBQuery(className: kTodoClassName)
             query.getObjectInBackgroundWithId(objectID, block: { (object: NCMBObject!, fetchError: NSError?) -> Void in
@@ -104,7 +106,7 @@ class MasterViewController: UITableViewController {
                     // TODO: 削除は同期処理に変更するか再考する。
                     object.deleteInBackgroundWithBlock({ (deleteError: NSError!) -> Void in
                         if (deleteError == nil) {
-                            let deletedObject = self.objects.removeAtIndex(indexPath.row) as! NCMBObject
+                            let deletedObject = self.objects.removeAtIndex(indexPath.row)
                             println("削除したオブジェクトの情報: \(deletedObject)")
                             // データソースから削除
                             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -145,7 +147,7 @@ class MasterViewController: UITableViewController {
                     let title: AnyObject? = todo.objectForKey("title")
                     println("--- \(todo.objectId): \(title)")
                 }
-                self.objects = todos
+                self.objects = todos as! [NCMBObject]
                 self.tableView.reloadData()
             } else {
                 println("Error: \(error)")
@@ -160,6 +162,8 @@ class MasterViewController: UITableViewController {
     func addTodoWithTitle(title: String) {
         let obj = NCMBObject(className: "Todo") as NCMBObject
         obj.setObject(title, forKey: "title")
+        
+        
         // 非同期で保存
         obj.saveInBackgroundWithBlock { (error: NSError!) -> Void in
             if(error == nil){
@@ -175,8 +179,8 @@ class MasterViewController: UITableViewController {
     ///
     /// :param: todo TODOオブジェクト（NCMBObject）
     /// :returns: None
-    func insertNewTodoObject(todo: AnyObject) {
-        self.objects.insert(todo as! (NCMBObject), atIndex: 0)
+    func insertNewTodoObject(todo: NCMBObject!) {
+        self.objects.insert(todo, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         self.tableView.reloadData()
