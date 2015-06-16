@@ -11,9 +11,6 @@ class DetailViewController: UIViewController {
     /// TODOのタイトル
     @IBOutlet weak var todoTitle: UITextField!
 
-    /// TODOオブジェクトの内容
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    
     /// 追加/更新共用ボタン
     @IBOutlet weak var updateButton: UIBarButtonItem!
     
@@ -33,9 +30,6 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
             if let title = self.todoTitle {
                 title.text = detail.objectForKey("title") as! String
             }
