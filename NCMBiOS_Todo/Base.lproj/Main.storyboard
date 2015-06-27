@@ -114,50 +114,22 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Detail view content goes here" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="134" width="560" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="560" id="3Lw-5G-fVp"/>
-                                    <constraint firstAttribute="height" constant="300" id="F6m-jk-0gJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3Lw-5G-fVp"/>
-                                        <exclude reference="F6m-jk-0gJ"/>
-                                    </mask>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="efI-jh-5e2" firstAttribute="centerX" secondItem="Lei-5M-9Gs" secondAttribute="centerX" id="3Hn-tu-h1X"/>
                             <constraint firstItem="efI-jh-5e2" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="16" id="5HW-jQ-cJI"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" symbolic="YES" id="62x-JV-TTJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="efI-jh-5e2" secondAttribute="trailing" constant="-6" id="HHl-k6-g3u"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerY" secondItem="MMQ-IT-qOo" secondAttribute="centerY" constant="20" id="JzS-HC-Rnl"/>
                             <constraint firstItem="efI-jh-5e2" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="-6" id="NB8-Ym-Hbe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="efI-jh-5e2" secondAttribute="trailing" constant="34" id="aDV-VF-aJu"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="efI-jh-5e2" secondAttribute="bottom" constant="24" id="bWq-zJ-pTe"/>
                             <constraint firstItem="efI-jh-5e2" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="34" id="bYG-B5-1Ak"/>
                             <constraint firstAttribute="centerX" secondItem="efI-jh-5e2" secondAttribute="centerX" id="hqA-0e-dex"/>
                             <constraint firstItem="efI-jh-5e2" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="34" id="kIM-Ur-BLG"/>
-                            <constraint firstAttribute="trailing" secondItem="Lei-5M-9Gs" secondAttribute="trailing" constant="20" symbolic="YES" id="pXB-RP-Zz6"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="efI-jh-5e2" secondAttribute="bottom" constant="20" id="zma-Jc-u0N"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="3Hn-tu-h1X"/>
                                 <exclude reference="aDV-VF-aJu"/>
                                 <exclude reference="bYG-B5-1Ak"/>
                                 <exclude reference="kIM-Ur-BLG"/>
-                                <exclude reference="62x-JV-TTJ"/>
-                                <exclude reference="JzS-HC-Rnl"/>
-                                <exclude reference="pXB-RP-Zz6"/>
-                                <exclude reference="zma-Jc-u0N"/>
                             </mask>
                         </variation>
                     </view>
@@ -171,8 +143,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
                         <outlet property="todoTitle" destination="efI-jh-5e2" id="Qe6-wS-n1b"/>
+                        <outlet property="updateButton" destination="fxD-I4-BQx" id="rm2-0b-8tZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
