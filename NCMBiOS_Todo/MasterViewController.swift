@@ -99,11 +99,9 @@ class MasterViewController: UITableViewController {
             query.getObjectInBackgroundWithId(objectID, block: { (object: NCMBObject!, fetchError: NSError?) -> Void in
                 if fetchError == nil {
                     // NCMBから非同期で対象オブジェクトを削除します
-                    // TODO: 削除は同期処理に変更するか再考する。
                     object.deleteInBackgroundWithBlock({ (deleteError: NSError!) -> Void in
                         if (deleteError == nil) {
                             let deletedObject = self.objects.removeAtIndex(indexPath.row)
-                            println("削除したオブジェクトの情報: \(deletedObject)")
                             // データソースから削除
                             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         } else {
