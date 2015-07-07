@@ -3,3 +3,4 @@
 //
 
 #import <NCMB/NCMB.h>
+#import <NCMB/NCMBObject+Subclass.h>

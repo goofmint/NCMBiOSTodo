@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		120CF07F1B2C42F100E5C8FE /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */; };
+		12330FC11B4BDE830054C0EB /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12330FC01B4BDE830054C0EB /* Todo.swift */; };
 		1246A4701B232B7F009954E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246A46F1B232B7F009954E8 /* AppDelegate.swift */; };
 		1246A4721B232B7F009954E8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246A4711B232B7F009954E8 /* MasterViewController.swift */; };
 		1246A4741B232B7F009954E8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246A4731B232B7F009954E8 /* DetailViewController.swift */; };
@@ -17,7 +18,6 @@
 		1246A4881B232B7F009954E8 /* NCMBiOS_TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246A4871B232B7F009954E8 /* NCMBiOS_TodoTests.swift */; };
 		1282A54B1B244337005BE41C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0135A1B2330E6002E064C /* Settings.swift */; };
 		1282A54D1B244383005BE41C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1282A54C1B244383005BE41C /* libPods.a */; };
-		12868BC81B2C274D00C4958B /* NCMBiOSClinet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12868BC71B2C274D00C4958B /* NCMBiOSClinet.swift */; };
 		12D0135B1B2330E6002E064C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0135A1B2330E6002E064C /* Settings.swift */; };
 		F3CC555DDEC6AAA4B5354EC9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A443D8B9C33B18384ECA43BF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -35,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0760A23097F00CC43E95E327 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
+		12330FC01B4BDE830054C0EB /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		1246A46A1B232B7F009954E8 /* NCMBiOS_Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCMBiOS_Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1246A46E1B232B7F009954E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1246A46F1B232B7F009954E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		1246A4871B232B7F009954E8 /* NCMBiOS_TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCMBiOS_TodoTests.swift; sourceTree = "<group>"; };
 		1282A54C1B244383005BE41C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		1282A54E1B244413005BE41C /* NCMBiOS_Todo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NCMBiOS_Todo-Bridging-Header.h"; sourceTree = "<group>"; };
-		12868BC71B2C274D00C4958B /* NCMBiOSClinet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCMBiOSClinet.swift; sourceTree = "<group>"; };
 		12D013561B232EE5002E064C /* NCMBiOS_Todo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCMBiOS_Todo-Bridging-Header.h"; sourceTree = "<group>"; };
 		12D0135A1B2330E6002E064C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		44CDFD5C57FB104A94DB1904 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,12 +102,12 @@
 				1246A46F1B232B7F009954E8 /* AppDelegate.swift */,
 				1246A4711B232B7F009954E8 /* MasterViewController.swift */,
 				1246A4731B232B7F009954E8 /* DetailViewController.swift */,
-				12868BC71B2C274D00C4958B /* NCMBiOSClinet.swift */,
+				120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */,
+				12330FC01B4BDE830054C0EB /* Todo.swift */,
 				1246A4751B232B7F009954E8 /* Main.storyboard */,
 				1246A4781B232B7F009954E8 /* Images.xcassets */,
 				1246A47A1B232B7F009954E8 /* LaunchScreen.xib */,
 				1246A46D1B232B7F009954E8 /* Supporting Files */,
-				120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */,
 			);
 			path = NCMBiOS_Todo;
 			sourceTree = "<group>";
@@ -292,10 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12330FC11B4BDE830054C0EB /* Todo.swift in Sources */,
 				1246A4741B232B7F009954E8 /* DetailViewController.swift in Sources */,
 				1246A4721B232B7F009954E8 /* MasterViewController.swift in Sources */,
 				12D0135B1B2330E6002E064C /* Settings.swift in Sources */,
-				12868BC81B2C274D00C4958B /* NCMBiOSClinet.swift in Sources */,
 				120CF07F1B2C42F100E5C8FE /* EditTodoViewController.swift in Sources */,
 				1246A4701B232B7F009954E8 /* AppDelegate.swift in Sources */,
 			);
@@ -463,10 +463,7 @@
 				);
 				INFOPLIST_FILE = NCMBiOS_TodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NCMBiOS_TodoTests/NCMBiOS_Todo-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NCMBiOS_Todo.app/NCMBiOS_Todo";
@@ -483,10 +480,7 @@
 				);
 				INFOPLIST_FILE = NCMBiOS_TodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NCMBiOS_TodoTests/NCMBiOS_Todo-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NCMBiOS_Todo.app/NCMBiOS_Todo";

@@ -49,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ------------------------------------------------------------------------
 
     func setupNCMB() {
+        // サブクラスの登録
+        Todo.registerSubclass()
+        // セットアップ
         NCMB.setApplicationKey(kNCMBiOSApplicationKey, clientKey: kNCMBiOSClientKey)
     }
 }
