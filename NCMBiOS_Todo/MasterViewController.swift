@@ -11,7 +11,7 @@ class MasterViewController: UITableViewController {
 
     let kTodoClassName = "Todo"
     
-    /// TODOを格納する配列です。実際にはNCMBObjectを格納します。
+    /// TODOを格納する配列です。NCMBObjectを格納します。
     var objects = [NCMBObject]()
 
     override func awakeFromNib() {
@@ -133,7 +133,7 @@ class MasterViewController: UITableViewController {
     /// :returns: None
     func fetchAllTodos() {
         var query = NCMBQuery(className: kTodoClassName)
-        // タイトルにデータが含まれないものは除外
+        // タイトルにデータが含まれないものは除外（空の文字列は除外されない）
         query.whereKeyExists("title")
         // 登録日の降順で取得
         query.orderByDescending("createDate")

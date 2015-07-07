@@ -102,12 +102,12 @@
 				1246A46F1B232B7F009954E8 /* AppDelegate.swift */,
 				1246A4711B232B7F009954E8 /* MasterViewController.swift */,
 				1246A4731B232B7F009954E8 /* DetailViewController.swift */,
+				120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */,
 				12868BC71B2C274D00C4958B /* NCMBiOSClinet.swift */,
 				1246A4751B232B7F009954E8 /* Main.storyboard */,
 				1246A4781B232B7F009954E8 /* Images.xcassets */,
 				1246A47A1B232B7F009954E8 /* LaunchScreen.xib */,
 				1246A46D1B232B7F009954E8 /* Supporting Files */,
-				120CF07E1B2C42F100E5C8FE /* EditTodoViewController.swift */,
 			);
 			path = NCMBiOS_Todo;
 			sourceTree = "<group>";
@@ -463,10 +463,7 @@
 				);
 				INFOPLIST_FILE = NCMBiOS_TodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NCMBiOS_TodoTests/NCMBiOS_Todo-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NCMBiOS_Todo.app/NCMBiOS_Todo";
@@ -483,10 +480,7 @@
 				);
 				INFOPLIST_FILE = NCMBiOS_TodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NCMBiOS_TodoTests/NCMBiOS_Todo-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NCMBiOS_Todo.app/NCMBiOS_Todo";
