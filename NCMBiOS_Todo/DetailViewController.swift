@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var updateButton: UIBarButtonItem!
     
     // TODOオブジェクト
-    var detailItem: NCMBObject? {
+    var detailItem: Todo? {
         didSet {
             // Update the view.
             self.configureView()
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let title = self.todoTitle {
-                title.text = detail.objectForKey("title") as! String
+                title.text = detail.title
             }
         }
     }

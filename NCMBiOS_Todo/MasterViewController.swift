@@ -9,10 +9,8 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-    let kTodoClassName = "Todo"
-    
-    /// TODOを格納する配列です。NCMBObjectを格納します。
-    var objects = [NCMBObject]()
+    /// TODOを格納する配列
+    var objects = [Todo]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,9 +35,9 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editTodo" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = self.objects[indexPath.row]
+                let todo = self.objects[indexPath.row]
                 if let dvc = segue.destinationViewController as? DetailViewController {
-                    dvc.detailItem = object
+                    dvc.detailItem = todo
                     dvc.updateButton.title = "更新"
                 }
             }
@@ -54,13 +52,13 @@ class MasterViewController: UITableViewController {
     /// 今回はUnwind Identifierは必要ないので定義してません。
     @IBAction func backFromTodoEdit(segue:UIStoryboardSegue) {
         let svc = segue.sourceViewController as! DetailViewController
-        println("戻り: \(svc.detailItem)")
+
         if svc.detailItem == nil {
             println("TODOオブジェクトが存在しないので、新規とみなします。")
             self.addTodoWithTitle(svc.todoTitle.text)
         } else {
             println("更新処理")
-            svc.detailItem?.setObject(svc.todoTitle.text, forKey: "title")
+            svc.detailItem?.title = svc.todoTitle.text
             svc.detailItem?.saveInBackgroundWithBlock({ (error: NSError!) -> Void in
                 self.tableView.reloadData()
             })
@@ -82,8 +80,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        let object = objects[indexPath.row]
-        cell.textLabel!.text = object.objectForKey("title") as? String
+        let todo = objects[indexPath.row]
+        cell.textLabel?.text = todo.title
         return cell
     }
 
@@ -94,12 +92,10 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let object = objects[indexPath.row] as NCMBObject
-
-            // object.objectForKey("objectId") ではNGなので注意
-            let objectID = object.objectId
+            let todo = objects[indexPath.row] as NCMBObject
+            let objectID = todo.objectId
             
-            let query = NCMBQuery(className: kTodoClassName)
+            let query = Todo.query()
             query.getObjectInBackgroundWithId(objectID, block: { (object: NCMBObject!, fetchError: NSError?) -> Void in
                 if fetchError == nil {
                     // NCMBから非同期で対象オブジェクトを削除します
@@ -132,22 +128,22 @@ class MasterViewController: UITableViewController {
     /// :param: None
     /// :returns: None
     func fetchAllTodos() {
-        var query = NCMBQuery(className: kTodoClassName)
+        let query = Todo.query()
         // タイトルにデータが含まれないものは除外（空の文字列は除外されない）
         query.whereKeyExists("title")
         // 登録日の降順で取得
         query.orderByDescending("createDate")
         // 取得件数の指定
-        query.limit = 10
+        query.limit = 20
 
         query.findObjectsInBackgroundWithBlock({(NSArray todos, NSError error) in
             if (error == nil) {
                 println("登録件数: \(todos.count)")
                 for todo in todos {
-                    let title: AnyObject? = todo.objectForKey("title")
+                    let title = todo.title
                     println("--- \(todo.objectId): \(title)")
                 }
-                self.objects = todos as! [NCMBObject]
+                self.objects = todos as! [Todo] // NSArray -> Swift Array
                 self.tableView.reloadData()
             } else {
                 println("Error: \(error)")
@@ -160,15 +156,14 @@ class MasterViewController: UITableViewController {
     /// :param: title TODOのタイトル
     /// :returns: None
     func addTodoWithTitle(title: String) {
-        let obj = NCMBObject(className: "Todo") as NCMBObject
-        obj.setObject(title, forKey: "title")
-        
+        let todo = Todo.object() as! Todo
+        todo.setObject(title, forKey: "title")
         
         // 非同期で保存
-        obj.saveInBackgroundWithBlock { (error: NSError!) -> Void in
+        todo.saveInBackgroundWithBlock { (error: NSError!) -> Void in
             if(error == nil){
                 println("新規TODOの保存成功。表示の更新などを行う。")
-                self.insertNewTodoObject(obj)
+                self.insertNewTodoObject(todo)
             } else {
                 println("新規TODOの保存に失敗しました: \(error)")
             }
@@ -177,9 +172,9 @@ class MasterViewController: UITableViewController {
     
     /// TODOをDataSourceに追加して、表示を更新します
     ///
-    /// :param: todo TODOオブジェクト（NCMBObject）
+    /// :param: todo TODOオブジェクト
     /// :returns: None
-    func insertNewTodoObject(todo: NCMBObject!) {
+    func insertNewTodoObject(todo: Todo!) {
         self.objects.insert(todo, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
