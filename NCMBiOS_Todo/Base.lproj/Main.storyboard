@@ -119,7 +119,7 @@
                         <barButtonItem key="rightBarButtonItem" title="更新" id="fxD-I4-BQx">
                             <connections>
                                 <action selector="tappedUpdateButton:" destination="Ah7-4n-0Wa" id="pBE-j6-LGS"/>
-                                <segue destination="Z8b-iq-JAZ" kind="unwind" unwindAction="backFromTodoEdit:" id="qGK-lP-qNA"/>
+                                <segue destination="Z8b-iq-JAZ" kind="unwind" unwindAction="unwindromTodoEdit:" id="rWe-Wp-ozm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

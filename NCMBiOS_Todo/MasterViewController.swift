@@ -50,9 +50,12 @@ class MasterViewController: UITableViewController {
     
     /// TODO登録／編集画面から戻ってきた時の処理を行います。
     /// 今回はUnwind Identifierは必要ないので定義してません。
-    @IBAction func backFromTodoEdit(segue:UIStoryboardSegue) {
+    @IBAction func unwindromTodoEdit(segue:UIStoryboardSegue) {
         let svc = segue.sourceViewController as! DetailViewController
-
+        if count(svc.todoTitle.text) < 3 {
+            return
+        }
+        
         if svc.detailItem == nil {
             println("TODOオブジェクトが存在しないので、新規とみなします。")
             self.addTodoWithTitle(svc.todoTitle.text)
