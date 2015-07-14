@@ -49,6 +49,8 @@ let kNCMBiOSClientKey = "YOUR_CLIENT_KEY"
 ## 関連情報
 
 - [ニフティクラウド mobile backend](http://mb.cloud.nifty.com/)
+- [ダッシュボードの使い方 : データストア | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/dashboard/datastore.html)
+
 - [moongift/NCMBiOSUser](https://github.com/moongift/NCMBiOSUser)
 - [moongift/NCMBiOSFaceook](https://github.com/moongift/NCMBiOSFaceook  )
 - [moongift/NCMBiOSTwitter](https://github.com/moongift/NCMBiOSTwitter)
