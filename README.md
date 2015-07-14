@@ -1,65 +1,59 @@
 # NCMBiOS_Todo
 
-NCMBのデータストアを使用した簡単なTodoアプリです。認証は行っていません。
+## サンプルアプリケーション概要
 
-- Todoの一覧
-- Todoの登録と編集、削除
-    - Todoとして登録できるものはタイトルのみ
+ニフティクラウド mobile backendのデータストアを使用した簡単なTodoアプリです。Todoの一覧、登録、編集、削除が可能です。
+認証は行っていません。 Swift 1.2で記述しています。
 
+## 事前知識
 
-動作確認は次の環境で行っています。
+- CocoaPodsの利用の仕方やブリッジヘッダーの設定の仕方。
+- [クイックスタート](http://mb.cloud.nifty.com/doc/quickstart_ios.html)の内容。
 
-- OS X Yosemite 10.10.3 (14D136)
-- Xcode Version 6.3.2 (6D2105)
+## 動作確認環境
+
+- OS X Yosemite Version 10.10.4 (14E46)
+- Xcode Version 6.4 (6E35b)
 - ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
-- cocoapods 0.37.2
+- cocoppods 0.37.2
 
 
-以下の説明は、CocoaPodsの利用の仕方やブリッジヘッダーの設定の仕方を含め、[クイックスタート](http://mb.cloud.nifty.com/doc/quickstart_ios.html)の内容をご理解いただいているものとします。
+## 注意事項
 
-Podfileは次のように設定してください。現在のところ、 `use_frameworks!` オプションは利用できませんので注意してください。ニフティさんにissueをあげていますので、興味がある方は[こちら](動作環境は次の内容を想定しています。)をごらんください。
+Podfileは次のように設定してください。2015年7月14日時点では `use_frameworks!` オプションは利用できませんので注意してください。
 
-Podfile
+### Podfile
 
 ```
 platform :ios, '8.3'
 
 inhibit_all_warnings!
 
-# # 2015/06/06時点では、このオプションを指定するとビルドエラーが発生します。
+# # 2015/07/14時点では、このオプションを指定するとビルドエラーが発生します。
 # use_frameworks!
 
 pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
 ```
 
-## サンプルアプリケーション概要
+### APIキー
 
-- アプリケーションを起動すると、Todo一覧が表示されます。
-- ナビゲーションバーの `+` をタップすると、Todoを編集する画面が表示されます。
-- Todo一覧で、項目を右にスライドすると、 `編集` と `削除` が選択できます。
+`Settings.swift` の次の箇所をご自分の環境に合わせて書き換えてください。
 
-なお、このアプリでは、 `NCMBSubclassing` を使用していません。
+```Swift
+//// アプリケーションキー
+let kNCMBiOSApplicationKey = "YOUR_APPLICATION_KEY"
+//// クライアントキー
+let kNCMBiOSClientKey = "YOUR_CLIENT_KEY"
+```
+
+## 関連情報
+
+- [ニフティクラウド mobile backend](http://mb.cloud.nifty.com/)
+- [moongift/NCMBiOSUser](https://github.com/moongift/NCMBiOSUser)
+- [moongift/NCMBiOSFaceook](https://github.com/moongift/NCMBiOSFaceook  )
+- [moongift/NCMBiOSTwitter](https://github.com/moongift/NCMBiOSTwitter)
+- [moongift/NCMBiOSGoogle](https://github.com/moongift/NCMBiOSGoogle)
 
 ## ライセンス
 
 The MIT License (MIT)
-
-Copyright (c) 2015 Naoki Tsutsui
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
