@@ -39,7 +39,7 @@ pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
 
 `Settings.swift` の次の箇所をご自分の環境に合わせて書き換えてください。
 
-```Swift
+```swift
 //// アプリケーションキー
 let kNCMBiOSApplicationKey = "YOUR_APPLICATION_KEY"
 //// クライアントキー
@@ -49,6 +49,15 @@ let kNCMBiOSClientKey = "YOUR_CLIENT_KEY"
 ## 関連情報
 
 - [ニフティクラウド mobile backend](http://mb.cloud.nifty.com/)
+
+データストア関連
+- [機能ガイド : データストア | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/fnguide/datastore.html)
+- [ダッシュボードの使い方 : データストア | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/dashboard/datastore.html)
+- [SDKガイド (iOS) : オブジェクト操作 | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/sdkguide/ios/datastore.html)
+- [SDKガイド (iOS) : クエリの使い方 | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/sdkguide/ios/query.html)
+- [SDKガイド (iOS) : サブクラス | ニフティクラウド mobile backend](http://mb.cloud.nifty.com/doc/current/sdkguide/ios/subclass.html)
+
+類似のサンプルアプリケーション
 - [moongift/NCMBiOSUser](https://github.com/moongift/NCMBiOSUser)
 - [moongift/NCMBiOSFaceook](https://github.com/moongift/NCMBiOSFaceook  )
 - [moongift/NCMBiOSTwitter](https://github.com/moongift/NCMBiOSTwitter)
